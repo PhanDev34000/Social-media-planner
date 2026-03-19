@@ -59,9 +59,16 @@ export class PostListComponent implements OnInit, OnDestroy {
     filteredPosts: Post[] = [];
 
   onEditPost(post: Post): void {
-    this.postToEdit = post;
-    // Scroll vers le haut pour voir le formulaire
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  this.postToEdit = post;
+  
+  // Attendre que le formulaire soit chargé avec les données
+  setTimeout(() => {
+    // Scroller vers le formulaire
+    const formElement = document.querySelector('app-post-form');
+      if (formElement) {
+        formElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   }
 
   onEditComplete(): void {
