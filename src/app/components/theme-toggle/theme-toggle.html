@@ -1,0 +1,8 @@
+<button 
+  class="theme-toggle-btn" 
+  (click)="toggleTheme()"
+  [title]="(isDarkMode$ | async) ? 'Mode clair' : 'Mode sombre'"
+>
+  <span *ngIf="!(isDarkMode$ | async)">🌙</span>
+  <span *ngIf="(isDarkMode$ | async)">☀️</span>
+</button>

@@ -1,0 +1,57 @@
+<div class="calendar-container">
+  <div class="calendar-header">
+    <h2>📅 Calendrier des publications</h2>
+    
+    <div class="calendar-controls">
+      <button (click)="previousMonth()" class="btn-nav">◀ Précédent</button>
+      <h3>{{ getMonthYear() }}</h3>
+      <button (click)="nextMonth()" class="btn-nav">Suivant ▶</button>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <span class="color-box status-brouillon"></span>
+      <span>Brouillon</span>
+    </div>
+    <div class="legend-item">
+      <span class="color-box status-planifié"></span>
+      <span>Planifié</span>
+    </div>
+    <div class="legend-item">
+      <span class="color-box status-publié"></span>
+      <span>Publié</span>
+    </div>
+  </div>
+
+  <div class="calendar">
+    <!-- En-têtes des jours -->
+    <div class="calendar-weekdays">
+      <div class="weekday" *ngFor="let day of weekDays">{{ day }}</div>
+    </div>
+
+    <!-- Grille du calendrier -->
+    <div class="calendar-grid">
+      <div 
+        *ngFor="let day of calendarDays"
+        class="calendar-day"
+        [class.other-month]="!day.isCurrentMonth"
+        [class.today]="day.isToday"
+      >
+        <div class="day-number">{{ day.date.getDate() }}</div>
+        
+        <div class="day-posts">
+          <div 
+            *ngFor="let post of day.posts"
+            class="post-dot"
+            [ngClass]="getStatusClass(post.status)"
+            (click)="showPostDetails(post)"
+            [title]="post.content"
+          >
+            {{ post.content.substring(0, 20) }}{{ post.content.length > 20 ? '...' : '' }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

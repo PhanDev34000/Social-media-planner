@@ -1,0 +1,112 @@
+.post-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--shadow);
+  transition: all 0.3s ease;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--input-border);
+      background: var(--input-bg);
+      color: var(--text-primary);
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--button-primary);
+      }
+    }
+
+    small {
+      display: block;
+      margin-top: 0.25rem;
+      color: var(--text-tertiary);
+      font-size: 0.875rem;
+    }
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .image-preview {
+    margin-bottom: 1.5rem;
+    
+    img {
+      max-width: 100%;
+      max-height: 300px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      flex: 1;
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 1rem;
+      background: var(--button-primary);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: var(--button-primary-hover);
+      }
+    }
+
+    .btn-cancel {
+      padding: 1rem;
+      background: #f44336;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #d32f2f;
+      }
+    }
+  }
+}

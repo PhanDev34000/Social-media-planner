@@ -1,0 +1,57 @@
+<div class="post-list-wrapper">
+  <!-- Formulaire -->
+  <app-post-form 
+    [postToEdit]="postToEdit"
+    (editComplete)="onEditComplete()"
+  ></app-post-form>
+
+  <!-- Liste -->
+<div class="post-list-container">
+  <div class="list-header">
+    <h2>Mes posts planifiés ({{ filteredPosts.length }})</h2>
+    
+    <div class="filters">
+      <label class="filter-checkbox">
+        <input 
+          type="checkbox" 
+          [(ngModel)]="filters.brouillon"
+          (change)="onFilterChange()"
+        />
+        <span>📝 Brouillon</span>
+      </label>
+      
+      <label class="filter-checkbox">
+        <input 
+          type="checkbox" 
+          [(ngModel)]="filters.planifie"
+          (change)="onFilterChange()"
+        />
+        <span>⏰ Planifié</span>
+      </label>
+      
+      <label class="filter-checkbox">
+        <input 
+          type="checkbox" 
+          [(ngModel)]="filters.publie"
+          (change)="onFilterChange()"
+        />
+        <span>✅ Publié</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="filteredPosts.length === 0">
+    <p>📭 Aucun post pour le moment</p>
+    <p class="hint">Créez votre premier post ci-dessus !</p>
+  </div>
+
+  <div class="posts-grid" *ngIf="filteredPosts.length > 0">
+    <app-post-card 
+      *ngFor="let post of filteredPosts"
+      [post]="post"
+      (delete)="onDeletePost($event)"
+      (statusChange)="onStatusChange($event)"
+      (edit)="onEditPost($event)"
+    ></app-post-card>
+  </div>
+</div>

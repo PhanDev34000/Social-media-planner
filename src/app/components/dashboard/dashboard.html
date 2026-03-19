@@ -1,0 +1,72 @@
+<div class="dashboard-container">
+  <h2>📊 Tableau de bord</h2>
+
+  <!-- Statistiques -->
+  <div class="stats-grid">
+    <div class="stat-card total">
+      <div class="stat-icon">📊</div>
+      <div class="stat-content">
+        <div class="stat-value">{{ totalPosts }}</div>
+        <div class="stat-label">Total</div>
+      </div>
+    </div>
+
+    <div class="stat-card brouillon">
+      <div class="stat-icon">📝</div>
+      <div class="stat-content">
+        <div class="stat-value">{{ brouillonCount }}</div>
+        <div class="stat-label">Brouillon</div>
+      </div>
+    </div>
+
+    <div class="stat-card planifie">
+      <div class="stat-icon">⏰</div>
+      <div class="stat-content">
+        <div class="stat-value">{{ planifieCount }}</div>
+        <div class="stat-label">Planifié</div>
+      </div>
+    </div>
+
+    <div class="stat-card publie">
+      <div class="stat-icon">✅</div>
+      <div class="stat-content">
+        <div class="stat-value">{{ publieCount }}</div>
+        <div class="stat-label">Publié</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Activité récente -->
+  <div class="activity-card">
+    <h3>🔥 Activité récente</h3>
+    
+    <div class="activity-list">
+      <div class="activity-item" *ngIf="postsThisWeek > 0">
+        <span class="activity-icon">📅</span>
+        <span class="activity-text">
+          <strong>{{ postsThisWeek }}</strong> post{{ postsThisWeek > 1 ? 's' : '' }} à publier cette semaine
+        </span>
+      </div>
+
+      <div class="activity-item" *ngIf="lastPost">
+        <span class="activity-icon">📝</span>
+        <span class="activity-text">
+          Dernier post créé : <strong>"{{ truncateText(lastPost.content, 40) }}"</strong> 
+          <span class="time-ago">({{ getTimeAgo(lastPost.createdAt) }})</span>
+        </span>
+      </div>
+
+      <div class="activity-item" *ngIf="nextPost">
+        <span class="activity-icon">🚀</span>
+        <span class="activity-text">
+          Prochain post : <strong>{{ formatDate(nextPost.scheduledDate) }}</strong>
+        </span>
+      </div>
+
+      <div class="activity-item empty" *ngIf="totalPosts === 0">
+        <span class="activity-icon">💤</span>
+        <span class="activity-text">Aucune activité pour le moment. Créez votre premier post !</span>
+      </div>
+    </div>
+  </div>
+</div>

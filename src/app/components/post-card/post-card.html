@@ -1,0 +1,56 @@
+<div class="post-card">
+  <!-- En-tête avec statut -->
+  <div class="post-header">
+    <span class="badge" [ngClass]="getStatusBadgeClass()">
+      {{ getStatusLabel() }}
+    </span>
+    <div class="header-actions">
+      <button class="btn-edit" (click)="onEdit()" title="Modifier">
+        ✏️
+      </button>
+      <button class="btn-delete" (click)="onDelete()" title="Supprimer">
+        🗑️
+      </button>
+    </div>
+  </div>
+
+  <!-- Contenu du post -->
+  <div class="post-content">
+    <p>{{ post.content }}</p>
+  </div>
+
+  <!-- Image preview si présente -->
+  <div class="post-image" *ngIf="post.imagePreview">
+    <img [src]="post.imagePreview" alt="Aperçu" />
+  </div>
+
+  <!-- Date de publication -->
+  <div class="post-date">
+    📅 Programmé pour : <strong>{{ formatDate(post.scheduledDate) }}</strong>
+  </div>
+
+  <!-- Actions -->
+  <div class="post-actions">
+    <button 
+      class="btn-action" 
+      (click)="onStatusChange('brouillon')"
+      [disabled]="post.status === 'brouillon'"
+    >
+      📝 Brouillon
+    </button>
+    <button 
+      class="btn-action" 
+      (click)="onStatusChange('planifié')"
+      [disabled]="post.status === 'planifié'"
+    >
+      ⏰ Planifier
+    </button>
+    <button 
+      class="btn-action" 
+      (click)="onStatusChange('publié')"
+      [disabled]="post.status === 'publié'"
+    >
+      ✅ Publier
+    </button>
+  </div>
+</div>

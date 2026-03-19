@@ -1,0 +1,39 @@
+.app-container {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  transition: background 0.3s ease;
+
+  header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  app-theme-toggle {
+    position: absolute;
+    right: 1.5rem;
+  }
+}
+
+  main {
+    padding: 2rem 1rem;
+
+    @media (max-width: 768px) {
+      padding: 1rem 0.5rem;
+    }
+  }
+}

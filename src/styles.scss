@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+/* Variables CSS pour les thèmes */
+:root {
+  /* Light mode (défaut) */
+  --bg-primary: #b8e0ec;
+  --bg-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-tertiary: #999999;
+  --border-color: #dddddd;
+  --border-light: #eeeeee;
+  --header-bg: #4CAF50;
+  --header-text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --input-bg: #ffffff;
+  --input-border: #dddddd;
+  --button-primary: #4CAF50;
+  --button-primary-hover: #45a049;
+  --calendar-today: #e8f5e9;
+  --calendar-border: #4CAF50;
+  --calendar-other-month: #f9f9f9;
+}
+
+body.dark-mode {
+  /* Dark mode */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-tertiary: #808080;
+  --border-color: #404040;
+  --border-light: #353535;
+  --header-bg: #2d5f31;
+  --header-text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow-hover: rgba(0, 0, 0, 0.5);
+  --input-bg: #2d2d2d;
+  --input-border: #404040;
+  --button-primary: #4CAF50;
+  --button-primary-hover: #45a049;
+  --calendar-today: #1b3a1f;
+  --calendar-border: #4CAF50;
+  --calendar-other-month: #252525;
+}
+
+/* Reset de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s ease, color 0.3s ease;
+}
